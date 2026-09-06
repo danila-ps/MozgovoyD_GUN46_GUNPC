@@ -9,25 +9,20 @@ namespace HomeWork
         {
             // ===== Свойства =====
 
-            // Имя юнита: задаётся в конструкторе, только для чтения
             public string Name { get; }
 
-            // Здоровье: приватное поле-хранилище + публичное свойство только для чтения
             private float _health;
             public float Health
             {
                 get { return _health; }
             }
 
-            // Урон: задаётся в конструкторе, всегда равен 5, только для чтения
             public int Damage { get; }
 
-            // Броня: задаётся в конструкторе, всегда равна 0.6, только для чтения
             public float Armor { get; }
 
             // ===== Конструкторы =====
 
-            // Конструктор со строковым аргументом - основной
             public Unit(string name)
             {
                 Name = name;
@@ -36,20 +31,17 @@ namespace HomeWork
                 Armor = 0.6f;
             }
 
-            // Конструктор без аргумента - вызывает конструктор с аргументом через this
             public Unit() : this("Unknown Unit")
             {
             }
 
             // ===== Методы =====
 
-            // Возвращает фактическое здоровье с учётом брони
             public float GetRealHealth()
             {
                 return Health * (1f + Armor);
             }
 
-            // Наносит урон юниту, возвращает true если юнит погиб
             public bool SetDamage(int value)
             {
                 _health = Health - value * Armor;
@@ -59,7 +51,6 @@ namespace HomeWork
 
         static void Main(string[] args)
         {
-            // Пример использования класса Unit
             var hero = new Unit("Hero");
             var unknown = new Unit();
 
